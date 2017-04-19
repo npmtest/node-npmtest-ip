@@ -1,7 +1,10 @@
-# test coverage for  [ip (v1.1.5)](https://github.com/indutny/node-ip)  [![npm package](https://img.shields.io/npm/v/npmtest-ip.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-ip) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-ip.svg)](https://travis-ci.org/npmtest/node-npmtest-ip)
+# npmtest-ip
+
+#### test coverage for  [ip (v1.1.5)](https://github.com/indutny/node-ip)  [![npm package](https://img.shields.io/npm/v/npmtest-ip.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-ip) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-ip.svg)](https://travis-ci.org/npmtest/node-npmtest-ip)
+
 #### [![](https://badge.fury.io/js/ip.svg)](https://www.npmjs.com/package/ip)
 
-[![NPM](https://nodei.co/npm/ip.png?downloads=true)](https://www.npmjs.com/package/ip)
+[![NPM](https://nodei.co/npm/ip.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/ip)
 
 | git-branch : | [alpha](https://github.com/npmtest/node-npmtest-ip/tree/alpha)|
 |--:|:--|
@@ -9,11 +12,17 @@
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-ip/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-ip/build/test-report.html)|
 | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-ip/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-ip/tree/gh-pages/build)|
 
-[![istanbul-coverage](https://npmtest.github.io/node-npmtest-ip/build/screenCapture.buildCustomOrg.browser.coverage.html.png)](https://npmtest.github.io/node-npmtest-ip/build/coverage.html/index.html)
+- [https://npmtest.github.io/node-npmtest-ip/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-ip/build/coverage.html/index.html)
 
-[![test-report](https://npmtest.github.io/node-npmtest-ip/build/screenCapture.buildCustomOrg.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmtest%252Fnode-npmtest-ip%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-ip/build/test-report.html)
+[![istanbul-coverage](https://npmtest.github.io/node-npmtest-ip/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fcoverage.lib.html.png)](https://npmtest.github.io/node-npmtest-ip/build/coverage.html/index.html)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-ip/build/screenCapture.buildApidoc.browser.%252Fhome%252Ftravis%252Fbuild%252Fnpmdoc%252Fnode-npmdoc-ip%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-ip/build/apidoc.html)
+- [https://npmtest.github.io/node-npmtest-ip/build/test-report.html](https://npmtest.github.io/node-npmtest-ip/build/test-report.html)
+
+[![test-report](https://npmtest.github.io/node-npmtest-ip/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Ftest-report.html.png)](https://npmtest.github.io/node-npmtest-ip/build/test-report.html)
+
+- [https://npmdoc.github.io/node-npmdoc-ip/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-ip/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-ip/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-ip/build/apidoc.html)
 
 ![npmPackageListing](https://npmtest.github.io/node-npmtest-ip/build/screenCapture.npmPackageListing.svg)
 
@@ -27,8 +36,7 @@
 
 {
     "author": {
-        "name": "Fedor Indutny",
-        "email": "fedor@indutny.com"
+        "name": "Fedor Indutny"
     },
     "bugs": {
         "url": "https://github.com/indutny/node-ip/issues"
@@ -51,29 +59,23 @@
     "main": "lib/ip",
     "maintainers": [
         {
-            "name": "bcbailey",
-            "email": "brad@memoryleak.org"
+            "name": "bcbailey"
         },
         {
-            "name": "fedor.indutny",
-            "email": "fedor.indutny@gmail.com"
+            "name": "fedor.indutny"
         },
         {
-            "name": "indexzero",
-            "email": "charlie.robbins@gmail.com"
+            "name": "indexzero"
         },
         {
-            "name": "indutny",
-            "email": "fedor@indutny.com"
+            "name": "indutny"
         },
         {
-            "name": "mmalecki",
-            "email": "me@mmalecki.com"
+            "name": "mmalecki"
         }
     ],
     "name": "ip",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+ssh://git@github.com/indutny/node-ip.git"
