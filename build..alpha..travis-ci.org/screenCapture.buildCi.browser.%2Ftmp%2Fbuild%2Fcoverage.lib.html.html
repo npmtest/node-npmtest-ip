@@ -1,7 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>Code coverage report for node-npmtest-ip/ip/lib/ip.js</title>
+<html lang="en"><head>
+    <title>Code coverage report for node-npmtest-ip/node_modules/ip/lib/ip.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -194,7 +192,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-ip">npmtest-ip (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-ip/ip/lib/ip.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-ip/node_modules/ip/lib/ip.js</span></h1>
     <h2>
         
         Statements: <span class="metric">11.85% <small>(25 / 211)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -210,11 +208,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-ip/ip/lib/</a> &#187; ip.js</div>
+    <div class="path"><a href="../../../../index.html">All files</a> » <a href="index.html">node-npmtest-ip/node_modules/ip/lib/</a> » ip.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tr><td class="line-count">1
+<tbody><tr><td class="line-count">1
 2
 3
 4
@@ -1054,199 +1052,199 @@ var ip = exports;
 var Buffer = require('buffer').Buffer;
 var os = require('os');
 &nbsp;
-ip.toBuffer = <span class="fstat-no" title="function not covered" >function(ip, buff, offset) {</span>
-<span class="cstat-no" title="statement not covered" >  offset = ~~offset;</span>
+ip.toBuffer = <span class="fstat-no" title="function not covered">function(ip, buff, offset) {</span>
+<span class="cstat-no" title="statement not covered">  offset = ~~offset;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var result;</span>
+<span class="cstat-no" title="statement not covered">  var result;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (this.isV4Format(ip)) {</span>
-<span class="cstat-no" title="statement not covered" >    result = buff || new Buffer(offset + 4);</span>
-<span class="cstat-no" title="statement not covered" >    ip.split(/\./g).map(<span class="fstat-no" title="function not covered" >function(byte) {</span></span>
-<span class="cstat-no" title="statement not covered" >      result[offset++] = parseInt(byte, 10) &amp; 0xff;</span>
+<span class="cstat-no" title="statement not covered">  if (this.isV4Format(ip)) {</span>
+<span class="cstat-no" title="statement not covered">    result = buff || new Buffer(offset + 4);</span>
+<span class="cstat-no" title="statement not covered">    ip.split(/\./g).map(<span class="fstat-no" title="function not covered">function(byte) {</span></span>
+<span class="cstat-no" title="statement not covered">      result[offset++] = parseInt(byte, 10) &amp; 0xff;</span>
     });
-  } else <span class="cstat-no" title="statement not covered" >if (this.isV6Format(ip)) {</span>
-<span class="cstat-no" title="statement not covered" >    var sections = ip.split(':', 8);</span>
+  } else <span class="cstat-no" title="statement not covered">if (this.isV6Format(ip)) {</span>
+<span class="cstat-no" title="statement not covered">    var sections = ip.split(':', 8);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    var i;</span>
-<span class="cstat-no" title="statement not covered" >    for (i = 0; i &lt; sections.length; i++) {</span>
-<span class="cstat-no" title="statement not covered" >      var isv4 = this.isV4Format(sections[i]);</span>
-<span class="cstat-no" title="statement not covered" >      var v4Buffer;</span>
+<span class="cstat-no" title="statement not covered">    var i;</span>
+<span class="cstat-no" title="statement not covered">    for (i = 0; i &lt; sections.length; i++) {</span>
+<span class="cstat-no" title="statement not covered">      var isv4 = this.isV4Format(sections[i]);</span>
+<span class="cstat-no" title="statement not covered">      var v4Buffer;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      if (isv4) {</span>
-<span class="cstat-no" title="statement not covered" >        v4Buffer = this.toBuffer(sections[i]);</span>
-<span class="cstat-no" title="statement not covered" >        sections[i] = v4Buffer.slice(0, 2).toString('hex');</span>
+<span class="cstat-no" title="statement not covered">      if (isv4) {</span>
+<span class="cstat-no" title="statement not covered">        v4Buffer = this.toBuffer(sections[i]);</span>
+<span class="cstat-no" title="statement not covered">        sections[i] = v4Buffer.slice(0, 2).toString('hex');</span>
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      if (v4Buffer &amp;&amp; ++i &lt; 8) {</span>
-<span class="cstat-no" title="statement not covered" >        sections.splice(i, 0, v4Buffer.slice(2, 4).toString('hex'));</span>
+<span class="cstat-no" title="statement not covered">      if (v4Buffer &amp;&amp; ++i &lt; 8) {</span>
+<span class="cstat-no" title="statement not covered">        sections.splice(i, 0, v4Buffer.slice(2, 4).toString('hex'));</span>
       }
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (sections[0] === '') {</span>
-<span class="cstat-no" title="statement not covered" >      while (sections.length &lt; 8) <span class="cstat-no" title="statement not covered" >sections.unshift('0');</span></span>
-    } else <span class="cstat-no" title="statement not covered" >if (sections[sections.length - 1] === '') {</span>
-<span class="cstat-no" title="statement not covered" >      while (sections.length &lt; 8) <span class="cstat-no" title="statement not covered" >sections.push('0');</span></span>
-    } else <span class="cstat-no" title="statement not covered" >if (sections.length &lt; 8) {</span>
-<span class="cstat-no" title="statement not covered" >      for (i = 0; i &lt; sections.length &amp;&amp; sections[i] !== ''; i++);</span>
-<span class="cstat-no" title="statement not covered" >      var argv = [ i, 1 ];</span>
-<span class="cstat-no" title="statement not covered" >      for (i = 9 - sections.length; i &gt; 0; i--) {</span>
-<span class="cstat-no" title="statement not covered" >        argv.push('0');</span>
+<span class="cstat-no" title="statement not covered">    if (sections[0] === '') {</span>
+<span class="cstat-no" title="statement not covered">      while (sections.length &lt; 8) <span class="cstat-no" title="statement not covered">sections.unshift('0');</span></span>
+    } else <span class="cstat-no" title="statement not covered">if (sections[sections.length - 1] === '') {</span>
+<span class="cstat-no" title="statement not covered">      while (sections.length &lt; 8) <span class="cstat-no" title="statement not covered">sections.push('0');</span></span>
+    } else <span class="cstat-no" title="statement not covered">if (sections.length &lt; 8) {</span>
+<span class="cstat-no" title="statement not covered">      for (i = 0; i &lt; sections.length &amp;&amp; sections[i] !== ''; i++);</span>
+<span class="cstat-no" title="statement not covered">      var argv = [ i, 1 ];</span>
+<span class="cstat-no" title="statement not covered">      for (i = 9 - sections.length; i &gt; 0; i--) {</span>
+<span class="cstat-no" title="statement not covered">        argv.push('0');</span>
       }
-<span class="cstat-no" title="statement not covered" >      sections.splice.apply(sections, argv);</span>
+<span class="cstat-no" title="statement not covered">      sections.splice.apply(sections, argv);</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    result = buff || new Buffer(offset + 16);</span>
-<span class="cstat-no" title="statement not covered" >    for (i = 0; i &lt; sections.length; i++) {</span>
-<span class="cstat-no" title="statement not covered" >      var word = parseInt(sections[i], 16);</span>
-<span class="cstat-no" title="statement not covered" >      result[offset++] = (word &gt;&gt; 8) &amp; 0xff;</span>
-<span class="cstat-no" title="statement not covered" >      result[offset++] = word &amp; 0xff;</span>
+<span class="cstat-no" title="statement not covered">    result = buff || new Buffer(offset + 16);</span>
+<span class="cstat-no" title="statement not covered">    for (i = 0; i &lt; sections.length; i++) {</span>
+<span class="cstat-no" title="statement not covered">      var word = parseInt(sections[i], 16);</span>
+<span class="cstat-no" title="statement not covered">      result[offset++] = (word &gt;&gt; 8) &amp; 0xff;</span>
+<span class="cstat-no" title="statement not covered">      result[offset++] = word &amp; 0xff;</span>
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (!result) {</span>
-<span class="cstat-no" title="statement not covered" >    throw Error('Invalid ip address: ' + ip);</span>
+<span class="cstat-no" title="statement not covered">  if (!result) {</span>
+<span class="cstat-no" title="statement not covered">    throw Error('Invalid ip address: ' + ip);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return result;</span>
+<span class="cstat-no" title="statement not covered">  return result;</span>
 };
 &nbsp;
-ip.toString = <span class="fstat-no" title="function not covered" >function(buff, offset, length) {</span>
-<span class="cstat-no" title="statement not covered" >  offset = ~~offset;</span>
-<span class="cstat-no" title="statement not covered" >  length = length || (buff.length - offset);</span>
+ip.toString = <span class="fstat-no" title="function not covered">function(buff, offset, length) {</span>
+<span class="cstat-no" title="statement not covered">  offset = ~~offset;</span>
+<span class="cstat-no" title="statement not covered">  length = length || (buff.length - offset);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var result = [];</span>
-<span class="cstat-no" title="statement not covered" >  if (length === 4) {</span>
+<span class="cstat-no" title="statement not covered">  var result = [];</span>
+<span class="cstat-no" title="statement not covered">  if (length === 4) {</span>
     // IPv4
-<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; length; i++) {</span>
-<span class="cstat-no" title="statement not covered" >      result.push(buff[offset + i]);</span>
+<span class="cstat-no" title="statement not covered">    for (var i = 0; i &lt; length; i++) {</span>
+<span class="cstat-no" title="statement not covered">      result.push(buff[offset + i]);</span>
     }
-<span class="cstat-no" title="statement not covered" >    result = result.join('.');</span>
-  } else <span class="cstat-no" title="statement not covered" >if (length === 16) {</span>
+<span class="cstat-no" title="statement not covered">    result = result.join('.');</span>
+  } else <span class="cstat-no" title="statement not covered">if (length === 16) {</span>
     // IPv6
-<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; length; i += 2) {</span>
-<span class="cstat-no" title="statement not covered" >      result.push(buff.readUInt16BE(offset + i).toString(16));</span>
+<span class="cstat-no" title="statement not covered">    for (var i = 0; i &lt; length; i += 2) {</span>
+<span class="cstat-no" title="statement not covered">      result.push(buff.readUInt16BE(offset + i).toString(16));</span>
     }
-<span class="cstat-no" title="statement not covered" >    result = result.join(':');</span>
-<span class="cstat-no" title="statement not covered" >    result = result.replace(/(^|:)0(:0)*:0(:|$)/, '$1::$3');</span>
-<span class="cstat-no" title="statement not covered" >    result = result.replace(/:{3,4}/, '::');</span>
+<span class="cstat-no" title="statement not covered">    result = result.join(':');</span>
+<span class="cstat-no" title="statement not covered">    result = result.replace(/(^|:)0(:0)*:0(:|$)/, '$1::$3');</span>
+<span class="cstat-no" title="statement not covered">    result = result.replace(/:{3,4}/, '::');</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return result;</span>
+<span class="cstat-no" title="statement not covered">  return result;</span>
 };
 &nbsp;
 var ipv4Regex = /^(\d{1,3}\.){3,3}\d{1,3}$/;
 var ipv6Regex =
     /^(::)?(((\d{1,3}\.){3}(\d{1,3}){1})?([0-9a-f]){0,4}:{0,2}){1,8}(::)?$/i;
 &nbsp;
-ip.isV4Format = <span class="fstat-no" title="function not covered" >function(ip) {</span>
-<span class="cstat-no" title="statement not covered" >  return ipv4Regex.test(ip);</span>
+ip.isV4Format = <span class="fstat-no" title="function not covered">function(ip) {</span>
+<span class="cstat-no" title="statement not covered">  return ipv4Regex.test(ip);</span>
 };
 &nbsp;
-ip.isV6Format = <span class="fstat-no" title="function not covered" >function(ip) {</span>
-<span class="cstat-no" title="statement not covered" >  return ipv6Regex.test(ip);</span>
+ip.isV6Format = <span class="fstat-no" title="function not covered">function(ip) {</span>
+<span class="cstat-no" title="statement not covered">  return ipv6Regex.test(ip);</span>
 };
-<span class="fstat-no" title="function not covered" >function _normalizeFamily(family) {</span>
-<span class="cstat-no" title="statement not covered" >  return family ? family.toLowerCase() : 'ipv4';</span>
+<span class="fstat-no" title="function not covered">function _normalizeFamily(family) {</span>
+<span class="cstat-no" title="statement not covered">  return family ? family.toLowerCase() : 'ipv4';</span>
 }
 &nbsp;
-ip.fromPrefixLen = <span class="fstat-no" title="function not covered" >function(prefixlen, family) {</span>
-<span class="cstat-no" title="statement not covered" >  if (prefixlen &gt; 32) {</span>
-<span class="cstat-no" title="statement not covered" >    family = 'ipv6';</span>
+ip.fromPrefixLen = <span class="fstat-no" title="function not covered">function(prefixlen, family) {</span>
+<span class="cstat-no" title="statement not covered">  if (prefixlen &gt; 32) {</span>
+<span class="cstat-no" title="statement not covered">    family = 'ipv6';</span>
   } else {
-<span class="cstat-no" title="statement not covered" >    family = _normalizeFamily(family);</span>
+<span class="cstat-no" title="statement not covered">    family = _normalizeFamily(family);</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var len = 4;</span>
-<span class="cstat-no" title="statement not covered" >  if (family === 'ipv6') {</span>
-<span class="cstat-no" title="statement not covered" >    len = 16;</span>
+<span class="cstat-no" title="statement not covered">  var len = 4;</span>
+<span class="cstat-no" title="statement not covered">  if (family === 'ipv6') {</span>
+<span class="cstat-no" title="statement not covered">    len = 16;</span>
   }
-<span class="cstat-no" title="statement not covered" >  var buff = new Buffer(len);</span>
+<span class="cstat-no" title="statement not covered">  var buff = new Buffer(len);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  for (var i = 0, n = buff.length; i &lt; n; ++i) {</span>
-<span class="cstat-no" title="statement not covered" >    var bits = 8;</span>
-<span class="cstat-no" title="statement not covered" >    if (prefixlen &lt; 8) {</span>
-<span class="cstat-no" title="statement not covered" >      bits = prefixlen;</span>
+<span class="cstat-no" title="statement not covered">  for (var i = 0, n = buff.length; i &lt; n; ++i) {</span>
+<span class="cstat-no" title="statement not covered">    var bits = 8;</span>
+<span class="cstat-no" title="statement not covered">    if (prefixlen &lt; 8) {</span>
+<span class="cstat-no" title="statement not covered">      bits = prefixlen;</span>
     }
-<span class="cstat-no" title="statement not covered" >    prefixlen -= bits;</span>
+<span class="cstat-no" title="statement not covered">    prefixlen -= bits;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    buff[i] = ~(0xff &gt;&gt; bits) &amp; 0xff;</span>
+<span class="cstat-no" title="statement not covered">    buff[i] = ~(0xff &gt;&gt; bits) &amp; 0xff;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return ip.toString(buff);</span>
+<span class="cstat-no" title="statement not covered">  return ip.toString(buff);</span>
 };
 &nbsp;
-ip.mask = <span class="fstat-no" title="function not covered" >function(addr, mask) {</span>
-<span class="cstat-no" title="statement not covered" >  addr = ip.toBuffer(addr);</span>
-<span class="cstat-no" title="statement not covered" >  mask = ip.toBuffer(mask);</span>
+ip.mask = <span class="fstat-no" title="function not covered">function(addr, mask) {</span>
+<span class="cstat-no" title="statement not covered">  addr = ip.toBuffer(addr);</span>
+<span class="cstat-no" title="statement not covered">  mask = ip.toBuffer(mask);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var result = new Buffer(Math.max(addr.length, mask.length));</span>
+<span class="cstat-no" title="statement not covered">  var result = new Buffer(Math.max(addr.length, mask.length));</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var i = 0;</span>
+<span class="cstat-no" title="statement not covered">  var i = 0;</span>
   // Same protocol - do bitwise and
-<span class="cstat-no" title="statement not covered" >  if (addr.length === mask.length) {</span>
-<span class="cstat-no" title="statement not covered" >    for (i = 0; i &lt; addr.length; i++) {</span>
-<span class="cstat-no" title="statement not covered" >      result[i] = addr[i] &amp; mask[i];</span>
+<span class="cstat-no" title="statement not covered">  if (addr.length === mask.length) {</span>
+<span class="cstat-no" title="statement not covered">    for (i = 0; i &lt; addr.length; i++) {</span>
+<span class="cstat-no" title="statement not covered">      result[i] = addr[i] &amp; mask[i];</span>
     }
-  } else <span class="cstat-no" title="statement not covered" >if (mask.length === 4) {</span>
+  } else <span class="cstat-no" title="statement not covered">if (mask.length === 4) {</span>
     // IPv6 address and IPv4 mask
     // (Mask low bits)
-<span class="cstat-no" title="statement not covered" >    for (i = 0; i &lt; mask.length; i++) {</span>
-<span class="cstat-no" title="statement not covered" >      result[i] = addr[addr.length - 4  + i] &amp; mask[i];</span>
+<span class="cstat-no" title="statement not covered">    for (i = 0; i &lt; mask.length; i++) {</span>
+<span class="cstat-no" title="statement not covered">      result[i] = addr[addr.length - 4  + i] &amp; mask[i];</span>
     }
   } else {
     // IPv6 mask and IPv4 addr
-<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; result.length - 6; i++) {</span>
-<span class="cstat-no" title="statement not covered" >      result[i] = 0;</span>
+<span class="cstat-no" title="statement not covered">    for (var i = 0; i &lt; result.length - 6; i++) {</span>
+<span class="cstat-no" title="statement not covered">      result[i] = 0;</span>
     }
 &nbsp;
     // ::ffff:ipv4
-<span class="cstat-no" title="statement not covered" >    result[10] = 0xff;</span>
-<span class="cstat-no" title="statement not covered" >    result[11] = 0xff;</span>
-<span class="cstat-no" title="statement not covered" >    for (i = 0; i &lt; addr.length; i++) {</span>
-<span class="cstat-no" title="statement not covered" >      result[i + 12] = addr[i] &amp; mask[i + 12];</span>
+<span class="cstat-no" title="statement not covered">    result[10] = 0xff;</span>
+<span class="cstat-no" title="statement not covered">    result[11] = 0xff;</span>
+<span class="cstat-no" title="statement not covered">    for (i = 0; i &lt; addr.length; i++) {</span>
+<span class="cstat-no" title="statement not covered">      result[i + 12] = addr[i] &amp; mask[i + 12];</span>
     }
-<span class="cstat-no" title="statement not covered" >    i = i + 12;</span>
+<span class="cstat-no" title="statement not covered">    i = i + 12;</span>
   }
-<span class="cstat-no" title="statement not covered" >  for (; i &lt; result.length; i++)</span>
-<span class="cstat-no" title="statement not covered" >    result[i] = 0;</span>
+<span class="cstat-no" title="statement not covered">  for (; i &lt; result.length; i++)</span>
+<span class="cstat-no" title="statement not covered">    result[i] = 0;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return ip.toString(result);</span>
+<span class="cstat-no" title="statement not covered">  return ip.toString(result);</span>
 };
 &nbsp;
-ip.cidr = <span class="fstat-no" title="function not covered" >function(cidrString) {</span>
-<span class="cstat-no" title="statement not covered" >  var cidrParts = cidrString.split('/');</span>
+ip.cidr = <span class="fstat-no" title="function not covered">function(cidrString) {</span>
+<span class="cstat-no" title="statement not covered">  var cidrParts = cidrString.split('/');</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var addr = cidrParts[0];</span>
-<span class="cstat-no" title="statement not covered" >  if (cidrParts.length !== 2)</span>
-<span class="cstat-no" title="statement not covered" >    throw new Error('invalid CIDR subnet: ' + addr);</span>
+<span class="cstat-no" title="statement not covered">  var addr = cidrParts[0];</span>
+<span class="cstat-no" title="statement not covered">  if (cidrParts.length !== 2)</span>
+<span class="cstat-no" title="statement not covered">    throw new Error('invalid CIDR subnet: ' + addr);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var mask = ip.fromPrefixLen(parseInt(cidrParts[1], 10));</span>
+<span class="cstat-no" title="statement not covered">  var mask = ip.fromPrefixLen(parseInt(cidrParts[1], 10));</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return ip.mask(addr, mask);</span>
+<span class="cstat-no" title="statement not covered">  return ip.mask(addr, mask);</span>
 };
 &nbsp;
-ip.subnet = <span class="fstat-no" title="function not covered" >function(addr, mask) {</span>
-<span class="cstat-no" title="statement not covered" >  var networkAddress = ip.toLong(ip.mask(addr, mask));</span>
+ip.subnet = <span class="fstat-no" title="function not covered">function(addr, mask) {</span>
+<span class="cstat-no" title="statement not covered">  var networkAddress = ip.toLong(ip.mask(addr, mask));</span>
 &nbsp;
   // Calculate the mask's length.
-<span class="cstat-no" title="statement not covered" >  var maskBuffer = ip.toBuffer(mask);</span>
-<span class="cstat-no" title="statement not covered" >  var maskLength = 0;</span>
+<span class="cstat-no" title="statement not covered">  var maskBuffer = ip.toBuffer(mask);</span>
+<span class="cstat-no" title="statement not covered">  var maskLength = 0;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  for (var i = 0; i &lt; maskBuffer.length; i++) {</span>
-<span class="cstat-no" title="statement not covered" >    if (maskBuffer[i] === 0xff) {</span>
-<span class="cstat-no" title="statement not covered" >      maskLength += 8;</span>
+<span class="cstat-no" title="statement not covered">  for (var i = 0; i &lt; maskBuffer.length; i++) {</span>
+<span class="cstat-no" title="statement not covered">    if (maskBuffer[i] === 0xff) {</span>
+<span class="cstat-no" title="statement not covered">      maskLength += 8;</span>
     } else {
-<span class="cstat-no" title="statement not covered" >      var octet = maskBuffer[i] &amp; 0xff;</span>
-<span class="cstat-no" title="statement not covered" >      while (octet) {</span>
-<span class="cstat-no" title="statement not covered" >        octet = (octet &lt;&lt; 1) &amp; 0xff;</span>
-<span class="cstat-no" title="statement not covered" >        maskLength++;</span>
+<span class="cstat-no" title="statement not covered">      var octet = maskBuffer[i] &amp; 0xff;</span>
+<span class="cstat-no" title="statement not covered">      while (octet) {</span>
+<span class="cstat-no" title="statement not covered">        octet = (octet &lt;&lt; 1) &amp; 0xff;</span>
+<span class="cstat-no" title="statement not covered">        maskLength++;</span>
       }
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var numberOfAddresses = Math.pow(2, 32 - maskLength);</span>
+<span class="cstat-no" title="statement not covered">  var numberOfAddresses = Math.pow(2, 32 - maskLength);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return {</span>
+<span class="cstat-no" title="statement not covered">  return {</span>
     networkAddress: ip.fromLong(networkAddress),
     firstAddress: numberOfAddresses &lt;= 2 ?
                     ip.fromLong(networkAddress) :
@@ -1260,97 +1258,97 @@ ip.subnet = <span class="fstat-no" title="function not covered" >function(addr, 
     numHosts: numberOfAddresses &lt;= 2 ?
                 numberOfAddresses : numberOfAddresses - 2,
     length: numberOfAddresses,
-    contains: <span class="fstat-no" title="function not covered" >function(other) {</span>
-<span class="cstat-no" title="statement not covered" >      return networkAddress === ip.toLong(ip.mask(other, mask));</span>
+    contains: <span class="fstat-no" title="function not covered">function(other) {</span>
+<span class="cstat-no" title="statement not covered">      return networkAddress === ip.toLong(ip.mask(other, mask));</span>
     }
   };
 };
 &nbsp;
-ip.cidrSubnet = <span class="fstat-no" title="function not covered" >function(cidrString) {</span>
-<span class="cstat-no" title="statement not covered" >  var cidrParts = cidrString.split('/');</span>
+ip.cidrSubnet = <span class="fstat-no" title="function not covered">function(cidrString) {</span>
+<span class="cstat-no" title="statement not covered">  var cidrParts = cidrString.split('/');</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var addr = cidrParts[0];</span>
-<span class="cstat-no" title="statement not covered" >  if (cidrParts.length !== 2)</span>
-<span class="cstat-no" title="statement not covered" >    throw new Error('invalid CIDR subnet: ' + addr);</span>
+<span class="cstat-no" title="statement not covered">  var addr = cidrParts[0];</span>
+<span class="cstat-no" title="statement not covered">  if (cidrParts.length !== 2)</span>
+<span class="cstat-no" title="statement not covered">    throw new Error('invalid CIDR subnet: ' + addr);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var mask = ip.fromPrefixLen(parseInt(cidrParts[1], 10));</span>
+<span class="cstat-no" title="statement not covered">  var mask = ip.fromPrefixLen(parseInt(cidrParts[1], 10));</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return ip.subnet(addr, mask);</span>
+<span class="cstat-no" title="statement not covered">  return ip.subnet(addr, mask);</span>
 };
 &nbsp;
-ip.not = <span class="fstat-no" title="function not covered" >function(addr) {</span>
-<span class="cstat-no" title="statement not covered" >  var buff = ip.toBuffer(addr);</span>
-<span class="cstat-no" title="statement not covered" >  for (var i = 0; i &lt; buff.length; i++) {</span>
-<span class="cstat-no" title="statement not covered" >    buff[i] = 0xff ^ buff[i];</span>
+ip.not = <span class="fstat-no" title="function not covered">function(addr) {</span>
+<span class="cstat-no" title="statement not covered">  var buff = ip.toBuffer(addr);</span>
+<span class="cstat-no" title="statement not covered">  for (var i = 0; i &lt; buff.length; i++) {</span>
+<span class="cstat-no" title="statement not covered">    buff[i] = 0xff ^ buff[i];</span>
   }
-<span class="cstat-no" title="statement not covered" >  return ip.toString(buff);</span>
+<span class="cstat-no" title="statement not covered">  return ip.toString(buff);</span>
 };
 &nbsp;
-ip.or = <span class="fstat-no" title="function not covered" >function(a, b) {</span>
-<span class="cstat-no" title="statement not covered" >  a = ip.toBuffer(a);</span>
-<span class="cstat-no" title="statement not covered" >  b = ip.toBuffer(b);</span>
+ip.or = <span class="fstat-no" title="function not covered">function(a, b) {</span>
+<span class="cstat-no" title="statement not covered">  a = ip.toBuffer(a);</span>
+<span class="cstat-no" title="statement not covered">  b = ip.toBuffer(b);</span>
 &nbsp;
   // same protocol
-<span class="cstat-no" title="statement not covered" >  if (a.length === b.length) {</span>
-<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; a.length; ++i) {</span>
-<span class="cstat-no" title="statement not covered" >      a[i] |= b[i];</span>
+<span class="cstat-no" title="statement not covered">  if (a.length === b.length) {</span>
+<span class="cstat-no" title="statement not covered">    for (var i = 0; i &lt; a.length; ++i) {</span>
+<span class="cstat-no" title="statement not covered">      a[i] |= b[i];</span>
     }
-<span class="cstat-no" title="statement not covered" >    return ip.toString(a);</span>
+<span class="cstat-no" title="statement not covered">    return ip.toString(a);</span>
 &nbsp;
   // mixed protocols
   } else {
-<span class="cstat-no" title="statement not covered" >    var buff = a;</span>
-<span class="cstat-no" title="statement not covered" >    var other = b;</span>
-<span class="cstat-no" title="statement not covered" >    if (b.length &gt; a.length) {</span>
-<span class="cstat-no" title="statement not covered" >      buff = b;</span>
-<span class="cstat-no" title="statement not covered" >      other = a;</span>
+<span class="cstat-no" title="statement not covered">    var buff = a;</span>
+<span class="cstat-no" title="statement not covered">    var other = b;</span>
+<span class="cstat-no" title="statement not covered">    if (b.length &gt; a.length) {</span>
+<span class="cstat-no" title="statement not covered">      buff = b;</span>
+<span class="cstat-no" title="statement not covered">      other = a;</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    var offset = buff.length - other.length;</span>
-<span class="cstat-no" title="statement not covered" >    for (var i = offset; i &lt; buff.length; ++i) {</span>
-<span class="cstat-no" title="statement not covered" >      buff[i] |= other[i - offset];</span>
+<span class="cstat-no" title="statement not covered">    var offset = buff.length - other.length;</span>
+<span class="cstat-no" title="statement not covered">    for (var i = offset; i &lt; buff.length; ++i) {</span>
+<span class="cstat-no" title="statement not covered">      buff[i] |= other[i - offset];</span>
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return ip.toString(buff);</span>
+<span class="cstat-no" title="statement not covered">    return ip.toString(buff);</span>
   }
 };
 &nbsp;
-ip.isEqual = <span class="fstat-no" title="function not covered" >function(a, b) {</span>
-<span class="cstat-no" title="statement not covered" >  a = ip.toBuffer(a);</span>
-<span class="cstat-no" title="statement not covered" >  b = ip.toBuffer(b);</span>
+ip.isEqual = <span class="fstat-no" title="function not covered">function(a, b) {</span>
+<span class="cstat-no" title="statement not covered">  a = ip.toBuffer(a);</span>
+<span class="cstat-no" title="statement not covered">  b = ip.toBuffer(b);</span>
 &nbsp;
   // Same protocol
-<span class="cstat-no" title="statement not covered" >  if (a.length === b.length) {</span>
-<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; a.length; i++) {</span>
-<span class="cstat-no" title="statement not covered" >      if (a[i] !== b[i]) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+<span class="cstat-no" title="statement not covered">  if (a.length === b.length) {</span>
+<span class="cstat-no" title="statement not covered">    for (var i = 0; i &lt; a.length; i++) {</span>
+<span class="cstat-no" title="statement not covered">      if (a[i] !== b[i]) <span class="cstat-no" title="statement not covered">return false;</span></span>
     }
-<span class="cstat-no" title="statement not covered" >    return true;</span>
+<span class="cstat-no" title="statement not covered">    return true;</span>
   }
 &nbsp;
   // Swap
-<span class="cstat-no" title="statement not covered" >  if (b.length === 4) {</span>
-<span class="cstat-no" title="statement not covered" >    var t = b;</span>
-<span class="cstat-no" title="statement not covered" >    b = a;</span>
-<span class="cstat-no" title="statement not covered" >    a = t;</span>
+<span class="cstat-no" title="statement not covered">  if (b.length === 4) {</span>
+<span class="cstat-no" title="statement not covered">    var t = b;</span>
+<span class="cstat-no" title="statement not covered">    b = a;</span>
+<span class="cstat-no" title="statement not covered">    a = t;</span>
   }
 &nbsp;
   // a - IPv4, b - IPv6
-<span class="cstat-no" title="statement not covered" >  for (var i = 0; i &lt; 10; i++) {</span>
-<span class="cstat-no" title="statement not covered" >    if (b[i] !== 0) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+<span class="cstat-no" title="statement not covered">  for (var i = 0; i &lt; 10; i++) {</span>
+<span class="cstat-no" title="statement not covered">    if (b[i] !== 0) <span class="cstat-no" title="statement not covered">return false;</span></span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var word = b.readUInt16BE(10);</span>
-<span class="cstat-no" title="statement not covered" >  if (word !== 0 &amp;&amp; word !== 0xffff) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+<span class="cstat-no" title="statement not covered">  var word = b.readUInt16BE(10);</span>
+<span class="cstat-no" title="statement not covered">  if (word !== 0 &amp;&amp; word !== 0xffff) <span class="cstat-no" title="statement not covered">return false;</span></span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  for (var i = 0; i &lt; 4; i++) {</span>
-<span class="cstat-no" title="statement not covered" >    if (a[i] !== b[i + 12]) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+<span class="cstat-no" title="statement not covered">  for (var i = 0; i &lt; 4; i++) {</span>
+<span class="cstat-no" title="statement not covered">    if (a[i] !== b[i + 12]) <span class="cstat-no" title="statement not covered">return false;</span></span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return true;</span>
+<span class="cstat-no" title="statement not covered">  return true;</span>
 };
 &nbsp;
-ip.isPrivate = <span class="fstat-no" title="function not covered" >function(addr) {</span>
-<span class="cstat-no" title="statement not covered" >  return /^(::f{4}:)?10\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$/i</span>
+ip.isPrivate = <span class="fstat-no" title="function not covered">function(addr) {</span>
+<span class="cstat-no" title="statement not covered">  return /^(::f{4}:)?10\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$/i</span>
       .test(addr) ||
     /^(::f{4}:)?192\.168\.([0-9]{1,3})\.([0-9]{1,3})$/i.test(addr) ||
     /^(::f{4}:)?172\.(1[6-9]|2\d|30|31)\.([0-9]{1,3})\.([0-9]{1,3})$/i
@@ -1363,29 +1361,29 @@ ip.isPrivate = <span class="fstat-no" title="function not covered" >function(add
     /^::$/.test(addr);
 };
 &nbsp;
-ip.isPublic = <span class="fstat-no" title="function not covered" >function(addr) {</span>
-<span class="cstat-no" title="statement not covered" >  return !ip.isPrivate(addr);</span>
+ip.isPublic = <span class="fstat-no" title="function not covered">function(addr) {</span>
+<span class="cstat-no" title="statement not covered">  return !ip.isPrivate(addr);</span>
 };
 &nbsp;
-ip.isLoopback = <span class="fstat-no" title="function not covered" >function(addr) {</span>
-<span class="cstat-no" title="statement not covered" >  return /^(::f{4}:)?127\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})/</span>
+ip.isLoopback = <span class="fstat-no" title="function not covered">function(addr) {</span>
+<span class="cstat-no" title="statement not covered">  return /^(::f{4}:)?127\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})/</span>
       .test(addr) ||
     /^fe80::1$/.test(addr) ||
     /^::1$/.test(addr) ||
     /^::$/.test(addr);
 };
 &nbsp;
-ip.loopback = <span class="fstat-no" title="function not covered" >function(family) {</span>
+ip.loopback = <span class="fstat-no" title="function not covered">function(family) {</span>
   //
   // Default to `ipv4`
   //
-<span class="cstat-no" title="statement not covered" >  family = _normalizeFamily(family);</span>
+<span class="cstat-no" title="statement not covered">  family = _normalizeFamily(family);</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (family !== 'ipv4' &amp;&amp; family !== 'ipv6') {</span>
-<span class="cstat-no" title="statement not covered" >    throw new Error('family must be ipv4 or ipv6');</span>
+<span class="cstat-no" title="statement not covered">  if (family !== 'ipv4' &amp;&amp; family !== 'ipv6') {</span>
+<span class="cstat-no" title="statement not covered">    throw new Error('family must be ipv4 or ipv6');</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return family === 'ipv4' ? '127.0.0.1' : 'fe80::1';</span>
+<span class="cstat-no" title="statement not covered">  return family === 'ipv4' ? '127.0.0.1' : 'fe80::1';</span>
 };
 &nbsp;
 //
@@ -1403,73 +1401,74 @@ ip.loopback = <span class="fstat-no" title="function not covered" >function(fami
 //   * 'private': the first private ip address of family.
 //   * undefined: First address with `ipv4` or loopback address `127.0.0.1`.
 //
-ip.address = <span class="fstat-no" title="function not covered" >function(name, family) {</span>
-<span class="cstat-no" title="statement not covered" >  var interfaces = os.networkInterfaces();</span>
-<span class="cstat-no" title="statement not covered" >  var all;</span>
+ip.address = <span class="fstat-no" title="function not covered">function(name, family) {</span>
+<span class="cstat-no" title="statement not covered">  var interfaces = os.networkInterfaces();</span>
+<span class="cstat-no" title="statement not covered">  var all;</span>
 &nbsp;
   //
   // Default to `ipv4`
   //
-<span class="cstat-no" title="statement not covered" >  family = _normalizeFamily(family);</span>
+<span class="cstat-no" title="statement not covered">  family = _normalizeFamily(family);</span>
 &nbsp;
   //
   // If a specific network interface has been named,
   // return the address.
   //
-<span class="cstat-no" title="statement not covered" >  if (name &amp;&amp; name !== 'private' &amp;&amp; name !== 'public') {</span>
-<span class="cstat-no" title="statement not covered" >    var res = interfaces[name].filter(<span class="fstat-no" title="function not covered" >function(details) {</span></span>
-<span class="cstat-no" title="statement not covered" >      var itemFamily = details.family.toLowerCase();</span>
-<span class="cstat-no" title="statement not covered" >      return itemFamily === family;</span>
+<span class="cstat-no" title="statement not covered">  if (name &amp;&amp; name !== 'private' &amp;&amp; name !== 'public') {</span>
+<span class="cstat-no" title="statement not covered">    var res = interfaces[name].filter(<span class="fstat-no" title="function not covered">function(details) {</span></span>
+<span class="cstat-no" title="statement not covered">      var itemFamily = details.family.toLowerCase();</span>
+<span class="cstat-no" title="statement not covered">      return itemFamily === family;</span>
     });
-<span class="cstat-no" title="statement not covered" >    if (res.length === 0)</span>
-<span class="cstat-no" title="statement not covered" >      return undefined;</span>
-<span class="cstat-no" title="statement not covered" >    return res[0].address;</span>
+<span class="cstat-no" title="statement not covered">    if (res.length === 0)</span>
+<span class="cstat-no" title="statement not covered">      return undefined;</span>
+<span class="cstat-no" title="statement not covered">    return res[0].address;</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  var all = Object.keys(interfaces).map(<span class="fstat-no" title="function not covered" >function (nic) {</span></span>
+<span class="cstat-no" title="statement not covered">  var all = Object.keys(interfaces).map(<span class="fstat-no" title="function not covered">function (nic) {</span></span>
     //
     // Note: name will only be `public` or `private`
     // when this is called.
     //
-<span class="cstat-no" title="statement not covered" >    var addresses = interfaces[nic].filter(<span class="fstat-no" title="function not covered" >function (details) {</span></span>
-<span class="cstat-no" title="statement not covered" >      details.family = details.family.toLowerCase();</span>
-<span class="cstat-no" title="statement not covered" >      if (details.family !== family || ip.isLoopback(details.address)) {</span>
-<span class="cstat-no" title="statement not covered" >        return false;</span>
-      } else <span class="cstat-no" title="statement not covered" >if (!name) {</span>
-<span class="cstat-no" title="statement not covered" >        return true;</span>
+<span class="cstat-no" title="statement not covered">    var addresses = interfaces[nic].filter(<span class="fstat-no" title="function not covered">function (details) {</span></span>
+<span class="cstat-no" title="statement not covered">      details.family = details.family.toLowerCase();</span>
+<span class="cstat-no" title="statement not covered">      if (details.family !== family || ip.isLoopback(details.address)) {</span>
+<span class="cstat-no" title="statement not covered">        return false;</span>
+      } else <span class="cstat-no" title="statement not covered">if (!name) {</span>
+<span class="cstat-no" title="statement not covered">        return true;</span>
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      return name === 'public' ? ip.isPrivate(details.address) :</span>
+<span class="cstat-no" title="statement not covered">      return name === 'public' ? ip.isPrivate(details.address) :</span>
           ip.isPublic(details.address);
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return addresses.length ? addresses[0].address : undefined;</span>
+<span class="cstat-no" title="statement not covered">    return addresses.length ? addresses[0].address : undefined;</span>
   }).filter(Boolean);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return !all.length ? ip.loopback(family) : all[0];</span>
+<span class="cstat-no" title="statement not covered">  return !all.length ? ip.loopback(family) : all[0];</span>
 };
 &nbsp;
-ip.toLong = <span class="fstat-no" title="function not covered" >function(ip) {</span>
-<span class="cstat-no" title="statement not covered" >  var ipl = 0;</span>
-<span class="cstat-no" title="statement not covered" >  ip.split('.').forEach(<span class="fstat-no" title="function not covered" >function(octet) {</span></span>
-<span class="cstat-no" title="statement not covered" >    ipl &lt;&lt;= 8;</span>
-<span class="cstat-no" title="statement not covered" >    ipl += parseInt(octet);</span>
+ip.toLong = <span class="fstat-no" title="function not covered">function(ip) {</span>
+<span class="cstat-no" title="statement not covered">  var ipl = 0;</span>
+<span class="cstat-no" title="statement not covered">  ip.split('.').forEach(<span class="fstat-no" title="function not covered">function(octet) {</span></span>
+<span class="cstat-no" title="statement not covered">    ipl &lt;&lt;= 8;</span>
+<span class="cstat-no" title="statement not covered">    ipl += parseInt(octet);</span>
   });
-<span class="cstat-no" title="statement not covered" >  return(ipl &gt;&gt;&gt; 0);</span>
+<span class="cstat-no" title="statement not covered">  return(ipl &gt;&gt;&gt; 0);</span>
 };
 &nbsp;
-ip.fromLong = <span class="fstat-no" title="function not covered" >function(ipl) {</span>
-<span class="cstat-no" title="statement not covered" >  return ((ipl &gt;&gt;&gt; 24) + '.' +</span>
+ip.fromLong = <span class="fstat-no" title="function not covered">function(ipl) {</span>
+<span class="cstat-no" title="statement not covered">  return ((ipl &gt;&gt;&gt; 24) + '.' +</span>
       (ipl &gt;&gt; 16 &amp; 255) + '.' +
       (ipl &gt;&gt; 8 &amp; 255) + '.' +
       (ipl &amp; 255) );
 };
 &nbsp;
 &nbsp;</pre></td></tr>
-</table></pre>
+</tbody></table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 14:31:48 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Wed Apr 19 2017 06:34:52 GMT+0000 (UTC)</div>
 </div>
-</body>
-</html>
+
+
+</body></html>
