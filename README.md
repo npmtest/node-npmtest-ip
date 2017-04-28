@@ -1,6 +1,6 @@
 # npmtest-ip
 
-#### test coverage for  [ip (v1.1.5)](https://github.com/indutny/node-ip)  [![npm package](https://img.shields.io/npm/v/npmtest-ip.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-ip) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-ip.svg)](https://travis-ci.org/npmtest/node-npmtest-ip)
+#### basic test coverage for  [ip (v1.1.5)](https://github.com/indutny/node-ip)  [![npm package](https://img.shields.io/npm/v/npmtest-ip.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-ip) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-ip.svg)](https://travis-ci.org/npmtest/node-npmtest-ip)
 
 #### [![](https://badge.fury.io/js/ip.svg)](https://www.npmjs.com/package/ip)
 
@@ -10,7 +10,7 @@
 |--:|:--|
 | coverage : | [![istanbul-coverage](https://npmtest.github.io/node-npmtest-ip/build/coverage.badge.svg)](https://npmtest.github.io/node-npmtest-ip/build/coverage.html/index.html)|
 | test-report : | [![test-report](https://npmtest.github.io/node-npmtest-ip/build/test-report.badge.svg)](https://npmtest.github.io/node-npmtest-ip/build/test-report.html)|
-| build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-ip/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-ip/tree/gh-pages/build)|
+| test-server-github : | [![github.com test-server](https://npmtest.github.io/node-npmtest-ip/GitHub-Mark-32px.png)](https://npmtest.github.io/node-npmtest-ip/build/app/index.html) | | build-artifacts : | [![build-artifacts](https://npmtest.github.io/node-npmtest-ip/glyphicons_144_folder_open.png)](https://github.com/npmtest/node-npmtest-ip/tree/gh-pages/build)|
 
 - [https://npmtest.github.io/node-npmtest-ip/build/coverage.html/index.html](https://npmtest.github.io/node-npmtest-ip/build/coverage.html/index.html)
 
@@ -84,7 +84,8 @@
         "fix": "jscs lib/*.js test/*.js --fix",
         "test": "jscs lib/*.js test/*.js && jshint lib/*.js && mocha --reporter spec test/*-test.js"
     },
-    "version": "1.1.5"
+    "version": "1.1.5",
+    "bin": {}
 }
 ```
 
